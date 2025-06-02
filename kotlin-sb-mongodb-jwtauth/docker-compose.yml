@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  dockermongodb:
+    image: mongo:latest
+    #    restart: always
+    container_name: "dockermongodb"
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+
+  springboot-mongodb:
+    image: sahil-sb-mongodb
+    container_name: springboot-mongodb-app
+    build: .
+    ports:
+      - 8081:8081
+    depends_on:
+      - dockermongodb
