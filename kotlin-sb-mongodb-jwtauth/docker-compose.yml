@@ -1,5 +1,4 @@
 version: '3.8'
-
 services:
   dockermongodb:
     image: mongo:latest
@@ -15,6 +14,12 @@ services:
     image: sahil-sb-mongodb
     container_name: springboot-mongodb-app
     build: .
+    environment:
+      JWT_SECRET_BASE64: ${JWT_SECRET_BASE64}
+      MONGO_DB_USERNAME: ${MONGO_DB_USERNAME}
+      MONGO_DB_PASSWORD: ${MONGO_DB_PASSWORD}
+#    env_file:
+#      - .env
     ports:
       - 8081:8081
     depends_on:
