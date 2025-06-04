@@ -1,12 +1,20 @@
 spring:
   data:
     mongodb:
-#      uri: ${MONGODB_CONNECTION_STRING}
-#      auto-index-creation: true
-      uri: mongodb://root:password@dockermongodb:27017/Book?authSource=admin
       database: Book
       host: dockermongodb
       port: 27017
-      username: root
-      password: password
       authentication-database: admin
+#      uri: ${MONGODB_CONNECTION_STRING}
+#      auto-index-creation: true
+#      uri: mongodb://root:password@dockermongodb:27017/Book?authSource=admin
+#      username: root
+#      password: password
+
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html

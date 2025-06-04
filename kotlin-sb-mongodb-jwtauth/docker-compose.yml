@@ -1,14 +1,17 @@
-version: '3.8'
 services:
   dockermongodb:
     image: mongo:latest
     #    restart: always
-    container_name: "dockermongodb"
+    container_name: dockermongodb
     ports:
       - 27017:27017
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: password
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: root
+#      MONGO_INITDB_ROOT_PASSWORD: password
+#    volumes:
+#      - type: bind
+#        source: ./data
+#        target: /data/db
 
   springboot-mongodb:
     image: sahil-sb-mongodb
@@ -16,11 +19,10 @@ services:
     build: .
     environment:
       JWT_SECRET_BASE64: ${JWT_SECRET_BASE64}
-      MONGO_DB_USERNAME: ${MONGO_DB_USERNAME}
-      MONGO_DB_PASSWORD: ${MONGO_DB_PASSWORD}
 #    env_file:
 #      - .env
     ports:
       - 8081:8081
+#      - 8080:8080 # swagger runs on the same port as the application
     depends_on:
       - dockermongodb

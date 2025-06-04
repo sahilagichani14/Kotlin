@@ -30,6 +30,10 @@ dependencies {
 	testImplementation("org.springframework.security:spring-security-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.8")
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-api:2.8.8")
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.19.0")
+
 	implementation("org.springframework.security:spring-security-crypto")
 	compileOnly("jakarta.servlet:jakarta.servlet-api:6.1.0")
 	implementation("io.jsonwebtoken:jjwt-api:0.12.6")
